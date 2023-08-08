@@ -37,7 +37,7 @@
                             Nuestra historia
                         </div>
                         <div class="text-content text-center ps-lg-0 pe-lg-0 ps-3 pe-3">
-                            Un dia saliendo de la iglesia donde nos congregamos, nos econtramos en un pasillo, nos miramos y saludamos con un "Hola" alli fue donde todo empezo. "Hay momentos en la vida que son muy especiales por si solos, pero al compartirlos con personas tan especiales como tú, se convierten en momentos imposibles de olvidar ¡Te esperamos en nuestra boda!"
+                            Un dia saliendo de la iglesia, nos econtramos en un pasillo, nos miramos y saludamos con un "Hola" alli fue donde todo empezo. "Hay momentos en la vida que son muy especiales por si solos, pero al compartirlos con personas tan especiales como tú, se convierten en momentos imposibles de olvidar ¡Te esperamos en nuestra boda!"
                         </div>
                         <div class="box-img-boyfriend-history m-auto p-lg-0 p-3">
                             <img src="./img/foto_1.jpg" alt="foto_1">
@@ -171,9 +171,9 @@
                         </div>
                         <div class="text-address text-center">
                             <div class="text-break">Sábado, 07 de Octubre, 2023</div>
-                            <div class="text-break">11:30 AM - 01:00 PM</div>
-                            <div class="text-break">11-73, 5A Calle, Cdad. de Guatemala</div>
-                            <div class="text-break">Iglesia La Merced Guatemala</div>
+                            <div class="text-break">15:00 PM</div>
+                            <div class="text-break">Santiago Sacatepéquez, Guatemala</div>
+                            <div class="text-break">La Finca Romero</div>
                         </div>
                         <div class="box-map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d964.9624079207264!2d-90.6686508!3d14.6644735!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85897579296a5875%3A0xfcada9a102f82204!2sLa%20Finca%20Romero!5e0!3m2!1ses-419!2sgt!4v1689445671456!5m2!1ses-419!2sgt"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
