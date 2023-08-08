@@ -14,6 +14,7 @@
         <script src="<?=base_url('js/jquery-3.7.0.min.js')?>" ></script>
         <script src="<?=base_url('js/lightbox.js')?>" ></script>
 
+
         
     </head>
     <body>
@@ -25,7 +26,7 @@
                     <div class="header-text-front">Save the Date</div>
                     <div class="line mt-3"></div>
                     <div class="wedding-day">Octubre 07/2023</div>
-                    <button class="btn-calendar" id="googleCalendarButton">Agregar a mi calendario</button>
+                    <button class="btn-calendar" v-on:click="googleCalendar">Agregar a mi calendario</button>
                 </div>
                 <div class="section-history">
                     <div class="box-history m-auto">
@@ -243,18 +244,18 @@
             const targetDate = new Date(2023, 9, 7, 15, 0, 0);
 
             function updateCountdown() {
-            const now = new Date().getTime();
-            const timeRemaining = targetDate - now;
+                const now = new Date().getTime();
+                const timeRemaining = targetDate - now;
 
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-            document.getElementById("days").textContent = days.toString().padStart(2, '0');
-            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+                document.getElementById("days").textContent = days.toString().padStart(2, '0');
+                document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
             }
 
             // Actualizar la cuenta regresiva cada segundo
@@ -264,31 +265,14 @@
             updateCountdown();
             //Este código establece una fecha objetivo (en este caso, el 1 de enero de 2024) y luego calcula la diferencia entre la fecha actual y la fecha objetivo en días, horas, minutos y segundos. Luego, actualiza los elementos HTML correspondientes con estos valores y utiliza setInterval para actualizar la cuenta regresiva cada segundo.
 
-            //Puedes ajustar la fecha y el evento objetivo cambiando los valores en targetDate según tus necesidades.
+            //Puedes ajustar la fecha y el evento objetivo cambiando los valores en targetDate según tus necesidade
 
 
-            document.getElementById("googleCalendarButton").addEventListener("click", function() {
-            const eventTitle = "Boda de Marjorie y Moisés";
-            const eventLocation = "La Finca Romero, M87J+RFG, Santiago Sacatepéquez, Guatemala";
-            const eventStartDate = "2023-10-07T15:00:00";
-            const eventEndDate = "2023-10-07T19:00:00";
-            
-            const googleCalendarLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${encodeURIComponent(eventStartDate)}/${encodeURIComponent(eventEndDate)}&location=${encodeURIComponent(eventLocation)}`;
-            
-            // Abrir la ventana de agregar evento de Google Calendar en una nueva pestaña
-            window.open(googleCalendarLink);
-            });
 
             var app = new Vue({
                 el: '#app',
                 data: {
-                    nombre: '',
-                    estado: '',
                     asistencia: false,
-                    asistenciaForm: false,
-                    asistenciaFormError: false,
-                    asistenciaFormSuccess: false,
-                    asistenciaFormMessage: '',
                 },
                 methods: {
                     confirmarAsistencia: function(){
@@ -297,35 +281,52 @@
                             axios.post('<?=base_url('welcome/asistenia')?>', formdata)
                             .then(function (response) {
                                 if(response.data.status == 'success'){
-                                    app.asistenciaFormError = false;
-                                    app.asistenciaFormSuccess = true;
-                                    app.asistenciaFormMessage = 'Gracias por confirmar tu asistencia';
-                                    app.asistenciaForm = false;
-                                    app.asistencia = true;
+                                    this.createCookie('asistencia', 'true', 90);
                                 }else{
-                                    app.asistenciaFormError = true;
-                                    app.asistenciaFormSuccess = false;
-                                    app.asistenciaFormMessage = 'Ocurrio un error al confirmar tu asistencia';
+                                    console.log('error');
                                 }
                             })
                             .catch(function (error) {
                                 console.log(error);
                             });
+                        },
+                        createCookie: function (name, value, days) {
+                            var expires = "";
+                            if (days) {
+                                var date = new Date();
+                                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                                expires = "; expires=" + date.toUTCString();
+                            }
+                            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                        },
+                        getCookie: function (name) {
+                            var nameEQ = name + "=";
+                            var ca = document.cookie.split(';');
+                            for(var i = 0; i < ca.length; i++) {
+                                var c = ca[i];
+                                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                            }
+                            return null;
+                        },
+                        googleCalendar: function(){
+                            const eventTitle = "Boda de Marjorie y Moisés";
+                            const eventLocation = "La Finca Romero, M87J+RFG, Santiago Sacatepéquez, Guatemala";
+                            const eventStartDate = "20231007T15:00:00";
+                            const eventEndDate = "20231007T19:00:00";
+                            const googleCalendarLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${encodeURIComponent(eventStartDate)}/${encodeURIComponent(eventEndDate)}&location=${encodeURIComponent(eventLocation)}`;
+                            window.open(googleCalendarLink);
                         }
-                    
+
+                },
+                mounted: function(){
+                    if(this.getCookie('asistencia')){
+                        this.asistencia = true;
+                    }else{
+                        this.asistencia = false;
+                    }
                 }
             })
-
-
-
-
-
-
-
-
-
-
-
 
         </script>
         
