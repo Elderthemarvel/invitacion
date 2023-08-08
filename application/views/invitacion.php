@@ -312,8 +312,8 @@
                         googleCalendar: function(){
                             const eventTitle = "Boda de Marjorie y Moisés";
                             const eventLocation = "La Finca Romero, M87J+RFG, Santiago Sacatepéquez, Guatemala";
-                            const eventStartDate = "20231007T15:00:00";
-                            const eventEndDate = "20231007T19:00:00";
+                            const eventStartDate = "20231007T150000";
+                            const eventEndDate = "20231007T190000";
                             const googleCalendarLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${encodeURIComponent(eventStartDate)}/${encodeURIComponent(eventEndDate)}&location=${encodeURIComponent(eventLocation)}`;
                             window.open(googleCalendarLink);
                         }
