@@ -7,14 +7,12 @@
     <link href="<?=base_url('css/bootstrap.min.css')?>" rel="stylesheet" >
     <link rel="stylesheet" href="<?=base_url('css/style.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/lightbox.css')?>">
-
+    <link rel="stylesheet" href="<?=base_url('css/bootstrap-icons.css')?>">
     <script src="<?=base_url('js/bootstrap.bundle.min.js')?>" ></script>
     <script src="<?=base_url('js/vue.min.js')?>" ></script>
     <script src="<?=base_url('js/axios.min.js')?>" ></script>
     <script src="<?=base_url('js/jquery-3.7.0.min.js')?>" ></script>
     <script src="<?=base_url('js/lightbox.js')?>" ></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
 </head>
 <body style="background-color: #CAB164;">
     <div class="container mt-5">
@@ -24,7 +22,6 @@
                     <img src="img/girasoles.png" style="width:80px;" alt="">
                 </div>
                 <h3 class="text-center">Listado de confirmación</h3>
-    
                 <table class="table">
                     <thead>
                         <tr>
@@ -37,7 +34,7 @@
                         <?php foreach ($respuestas as $key => $respuesta) {?>
                         <tr>
                             <th scope="row"><?=$key+1?></th>
-                            <td><?=$respuesta['Nombre']?></td>
+                            <td><?=$respuesta['nombre']?></td>
                             <td><?=$respuesta['estado']==1 ? "Si, Asistire": "No podre asistir"; ?></td>
                         </tr>
                         <?php }?>
