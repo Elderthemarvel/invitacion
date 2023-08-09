@@ -13,11 +13,17 @@
         <script src="<?=base_url('js/axios.min.js')?>" ></script>
         <script src="<?=base_url('js/jquery-3.7.0.min.js')?>" ></script>
         <script src="<?=base_url('js/lightbox.js')?>" ></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 
         
     </head>
     <body>
+        <div class="start-invitation d-flex flex-column justify-content-center align-items-center">
+            <div class="header-text-front">Invitación de nuestra boda</div>
+            <div class="boyfriend_name"> Marjorie &&ZeroWidthSpace; Moisés </div>
+            <button class="btn-calendar" id="fade-button">ver Invitación</button>
+        </div>
         <div class="container-fluid container-general p-0" id="app">
             <div class="box-header-content">
                 <div class="front-layer d-flex flex-column justify-content-center align-items-center">
@@ -90,19 +96,6 @@
                                 ¡Este día es muy especial y que vayas lo hace aún más!
                             </div>
                         </div>
-
-                        <!--<div class="col-md-6 mt-lg-0 mt-5 mb-lg-0 mb-5">
-                            <div class="form-assistance p-4">
-                                <div class="text-center text-description">Confirma tu asistencia via Whatsapp</div>
-                                <div class="text-center mt-5">
-                                    <img src="img/icon_whatsapp.png" style="width:25%;" alt="">
-                                </div>
-                                <div class="text-center  mt-5">
-                                    <a href="https://api.whatsapp.com/send?phone=58334297&text=Confirmo mi asistencia" target="_blank" class="btn-calendar">Confirmar</a>
-                                </div>
-                            </div>
-                        </div>-->
-
                         <div class="col-md-6 mt-lg-0 mt-5 mb-lg-0 mb-5">
                             <div class="form-assistance p-4">
                                 <div class="text-center text-description">Ingresa los siguientes datos confirmar tu asistencia</div>
@@ -115,7 +108,12 @@
                                     </select>
 
                                     <button type="submit" class="btn-calendar mt-5">Enviar</button>
-                                </form>
+                                </form> 
+                                <!-- Confirmacion de asistencia -->
+                                <!-- <div class="text-assistance d-flex flex-column justify-content-center align-items-center">
+                                    <i class="bi bi-envelope-check-fill"></i>
+                                    ¡Gracias por confirmar tu asistencia!
+                                </div> -->
                             </div>
                         </div>
 
@@ -240,6 +238,13 @@
             </div>
         </div>
         <script>
+            const fadeButton = document.getElementById('fade-button');
+            const fadeContent = document.querySelector('.start-invitation');
+
+            fadeButton.addEventListener('click', () => {
+            fadeContent.classList.add('out');
+            });
+
             // Fecha objetivo (Año, Mes (0-11), Día, Hora, Minuto, Segundo)
             const targetDate = new Date(2023, 9, 7, 15, 0, 0);
 
