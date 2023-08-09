@@ -22,24 +22,26 @@
                     <img src="img/girasoles.png" style="width:80px;" alt="">
                 </div>
                 <h3 class="text-center">Listado de confirmación</h3>
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Respuesta</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($respuestas as $key => $respuesta) {?>
-                        <tr>
-                            <th scope="row"><?=$key+1?></th>
-                            <td><?=$respuesta['nombre']?></td>
-                            <td><?=$respuesta['estado']==1 ? "Si, Asistire": "No podre asistir"; ?></td>
-                        </tr>
-                        <?php }?>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Respuesta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($respuestas as $key => $respuesta) {?>
+                            <tr>
+                                <th scope="row"><?=$key+1?></th>
+                                <td><?=$respuesta['nombre']?></td>
+                                <td><?=$respuesta['estado']==1 ? "Si, Asistire": "No podre asistir"; ?></td>
+                            </tr>
+                            <?php }?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
        
