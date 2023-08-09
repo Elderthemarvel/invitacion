@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'gt-apps.com',
 	'username' => 'gtapps_invitacion',
 	'password' => '_S9!WqyBkCSs',
 	'database' => 'gtapps_invitacion',
