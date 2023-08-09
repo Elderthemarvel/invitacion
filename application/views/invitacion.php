@@ -18,7 +18,7 @@
 
         
     </head>
-    <body>
+    <body class="hidden">
         <div class="start-invitation d-flex flex-column justify-content-center align-items-center">
             <div class="header-text-front">Invitación de nuestra boda</div>
             <div class="boyfriend_name"> Marjorie &&ZeroWidthSpace; Moisés </div>
@@ -240,9 +240,11 @@
         <script>
             const fadeButton = document.getElementById('fade-button');
             const fadeContent = document.querySelector('.start-invitation');
+            const fadeScroll = document.querySelector('body');
 
             fadeButton.addEventListener('click', () => {
-            fadeContent.classList.add('out');
+                fadeContent.classList.add('out');
+                fadeScroll.classList.remove('hidden');
             });
 
             // Fecha objetivo (Año, Mes (0-11), Día, Hora, Minuto, Segundo)
