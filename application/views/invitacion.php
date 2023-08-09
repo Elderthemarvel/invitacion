@@ -4,16 +4,30 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Invitación</title>
-        <link href="<?=base_url('css/bootstrap.min.css')?>" rel="stylesheet" >
-        <link rel="stylesheet" href="<?=base_url('css/style.min.css')?>">
-        <link rel="stylesheet" href="<?=base_url('css/lightbox.css')?>">
-
-        <script src="<?=base_url('js/bootstrap.bundle.min.js')?>" ></script>
-        <script src="<?=base_url('js/vue.min.js')?>" ></script>
-        <script src="<?=base_url('js/axios.min.js')?>" ></script>
-        <script src="<?=base_url('js/jquery-3.7.0.min.js')?>" ></script>
-        <script src="<?=base_url('js/lightbox.js')?>" ></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <meta name="description" content="Invitación | Confirmación">
+        <meta name="author" content="GTAPPS">
+        <meta name="keywords" content="Invitación | Confirmación">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="Invitación | Confirmación">
+        <meta property="og:description" content="Invitación | Confirmación">
+        <meta property="og:image" content="img/girasoles.png">
+        <meta property="og:url" content="https://invitacion.gt-apps.com">
+        <meta property="og:site_name" content="Invitación | Confirmación">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="es_ES">
+        <!--iconos-->
+        <link rel="icon" href="<?=base_url('amperson.png')?>" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="<?=base_url('amperson.png')?>">
+        <!--css-->
+        <link href="<?=base_url('css/bootstrap.min.css?v=1')?>" rel="stylesheet" >
+        <link rel="stylesheet" href="<?=base_url('css/style.min.css?v=1')?>">
+        <link rel="stylesheet" href="<?=base_url('css/lightbox.css?v=1')?>">
+        <link rel="stylesheet" href="<?=base_url('css/bootstrap-icons.css')?>">
+        <script src="<?=base_url('js/bootstrap.bundle.min.js?v=1')?>" ></script>
+        <script src="<?=base_url('js/vue.min.js?v=1')?>" ></script>
+        <script src="<?=base_url('js/axios.min.js?v=1')?>" ></script>
+        <script src="<?=base_url('js/jquery-3.7.0.min.js?v=1')?>" ></script>
+        <script src="<?=base_url('js/lightbox.js?v=1')?>" ></script>
     </head>
     <body>
         <div id="app">
