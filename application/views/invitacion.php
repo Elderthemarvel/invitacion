@@ -14,17 +14,15 @@
         <script src="<?=base_url('js/jquery-3.7.0.min.js')?>" ></script>
         <script src="<?=base_url('js/lightbox.js')?>" ></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-
-        
     </head>
-    <body class="hidden">
-        <div class="start-invitation d-flex flex-column justify-content-center align-items-center">
+    <body>
+        <div id="app">
+        <div :class="{'start-invitation' : true, 'd-flex' : true, 'flex-column' : true, 'justify-content-center' : true, 'align-items-center' : true, 'out' : vista}">
             <div class="header-text-front">Invitación de nuestra boda</div>
             <div class="boyfriend_name"> Marjorie &&ZeroWidthSpace; Moisés </div>
-            <button class="btn-calendar" id="fade-button">ver Invitación</button>
+            <button class="btn-calendar" v-on:click="iniciar" >ver Invitación</button>
         </div>
-        <div class="container-fluid container-general p-0" id="app">
+        <div class="container-fluid container-general p-0">
             <div class="box-header-content">
                 <div class="front-layer d-flex flex-column justify-content-center align-items-center">
                     <div class="header-text-front">Te invitamos a nuestra boda</div>
@@ -98,22 +96,24 @@
                         </div>
                         <div class="col-md-6 mt-lg-0 mt-5 mb-lg-0 mb-5">
                             <div class="form-assistance p-4">
-                                <div class="text-center text-description">Ingresa los siguientes datos confirmar tu asistencia</div>
-                                <form action="" v-on:submit.prevent="confirmarAsistencia" ref="datos">
-                                    <input type="text" class="form-control form-control-lg mt-4" name="nombre" placeholder="Nombre" required>
-                                    <select class="form-select form-select-lg mb-3 mt-5" name="estado" required>
-                                        <option value="" selected>Confirmacion de asistencia</option>
-                                        <option value="1">Si asistiré</option>
-                                        <option value="0">No asistiré</option>
-                                    </select>
+                                <div v-if="!invitado" >
+                                    <div class="text-center text-description">Ingresa los siguientes datos confirmar tu asistencia</div>
+                                    <form action="" v-on:submit.prevent="confirmarAsistencia" ref="datos">
+                                        <input type="text" class="form-control form-control-lg mt-4" name="nombre" placeholder="Nombre" required>
+                                        <select class="form-select form-select-lg mb-3 mt-5" name="estado" required>
+                                            <option value="" selected>Confirmacion de asistencia</option>
+                                            <option value="1">Si asistiré</option>
+                                            <option value="0">No asistiré</option>
+                                        </select>
 
-                                    <button type="submit" class="btn-calendar mt-5">Enviar</button>
-                                </form> 
+                                        <button type="submit" class="btn-calendar mt-5">Enviar</button>
+                                    </form>
+                                </div>
                                 <!-- Confirmacion de asistencia -->
-                                <!-- <div class="text-assistance d-flex flex-column justify-content-center align-items-center">
+                                <div class="text-assistance d-flex flex-column justify-content-center align-items-center" v-else>
                                     <i class="bi bi-envelope-check-fill"></i>
                                     ¡Gracias por confirmar tu asistencia!
-                                </div> -->
+                                </div>
                             </div>
                         </div>
 
@@ -213,7 +213,6 @@
                                 <div class="box-line" >
                                     <div class="line-2"></div>
                                 </div>
-                                
                             </div>
                             <div class="col-md-4 text-center box-text-information" >
                                 <div class="text-center mb-5">
@@ -237,58 +236,45 @@
 
             </div>
         </div>
+        </div>
         <script>
-            const fadeButton = document.getElementById('fade-button');
-            const fadeContent = document.querySelector('.start-invitation');
-            const fadeScroll = document.querySelector('body');
 
-            fadeButton.addEventListener('click', () => {
-                fadeContent.classList.add('out');
-                fadeScroll.classList.remove('hidden');
-            });
-
-            // Fecha objetivo (Año, Mes (0-11), Día, Hora, Minuto, Segundo)
             const targetDate = new Date(2023, 9, 7, 15, 0, 0);
-
             function updateCountdown() {
                 const now = new Date().getTime();
                 const timeRemaining = targetDate - now;
-
                 const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
                 document.getElementById("days").textContent = days.toString().padStart(2, '0');
                 document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
                 document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
                 document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
             }
 
-            // Actualizar la cuenta regresiva cada segundo
             setInterval(updateCountdown, 1000);
-
-            // Actualizar la cuenta regresiva inmediatamente al cargar la página
             updateCountdown();
-            //Este código establece una fecha objetivo (en este caso, el 1 de enero de 2024) y luego calcula la diferencia entre la fecha actual y la fecha objetivo en días, horas, minutos y segundos. Luego, actualiza los elementos HTML correspondientes con estos valores y utiliza setInterval para actualizar la cuenta regresiva cada segundo.
-
-            //Puedes ajustar la fecha y el evento objetivo cambiando los valores en targetDate según tus necesidade
-
-
-
             var app = new Vue({
                 el: '#app',
                 data: {
                     asistencia: false,
+                    vista: false,
+                    invitado: false
                 },
                 methods: {
+                    iniciar: function (){
+                        this.vista = true;
+                        this.playAudio();
+                    },
                     confirmarAsistencia: function(){
 
                             var formdata = new FormData(this.$refs.datos);
                             axios.post('<?=base_url('welcome/asistenia')?>', formdata)
-                            .then(function (response) {
+                            .then( response => {
                                 if(response.data.status == 'success'){
-                                    this.createCookie('asistencia', 'true', 90);
+                                    this.createCookie('presente', 'true', 90);
+                                    this.invitado = true;
                                 }else{
                                     console.log('error');
                                 }
@@ -323,19 +309,22 @@
                             const eventEndDate = "20231007T190000";
                             const googleCalendarLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${encodeURIComponent(eventStartDate)}/${encodeURIComponent(eventEndDate)}&location=${encodeURIComponent(eventLocation)}`;
                             window.open(googleCalendarLink);
+                        },
+                        playAudio: function(){
+                            var audio = document.getElementById("audioPlayer");
+                            audio.play();
                         }
 
                 },
                 mounted: function(){
-                    if(this.getCookie('asistencia')){
-                        this.asistencia = true;
+                    if(this.getCookie('presente')){
+                        this.invitado = true;
                     }else{
-                        this.asistencia = false;
+                        this.invitado = false;
                     }
                 }
             })
 
         </script>
-        
     </body>
 </html>
