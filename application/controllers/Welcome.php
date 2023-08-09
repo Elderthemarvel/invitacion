@@ -51,6 +51,9 @@ class Welcome extends CI_Controller {
 		}else{
 			echo json_encode(array('status' => 'error'));
 		}
+	}
 
+	public function confirmacion(){
+		$this->load->view('confirmacion');
 	}
 }
