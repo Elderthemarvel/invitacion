@@ -55,10 +55,24 @@
                             Nuestra historia
                         </div>
                         <div class="text-content text-center ps-lg-0 pe-lg-0 ps-3 pe-3">
-                            Un dia saliendo de la iglesia, nos econtramos en un pasillo, nos miramos y saludamos con un "Hola" alli fue donde todo empezo. "Hay momentos en la vida que son muy especiales por si solos, pero al compartirlos con personas tan especiales como tú, se convierten en momentos imposibles de olvidar ¡Te esperamos en nuestra boda!"
+                            Un dia saliendo de la iglesia, nos econtramos en un pasillo, nos miramos y saludamos con un "Hola" alli fue donde todo empezo. <br> "Hay momentos en la vida que son muy especiales por si solos, pero al compartirlos con personas tan especiales como tú, se convierten en momentos imposibles de olvidar ¡Te esperamos en nuestra boda!"
                         </div>
                         <div class="box-img-boyfriend-history m-auto p-lg-0 p-3">
                             <img src="./img/foto_1.jpg" alt="foto_1">
+                        </div>
+                        <div class="text-content text-center ps-lg-0 pe-lg-0 ps-3 mt-3">
+                        "Honra a tu padre y a tu madre, como el SEÑOR tu Dios te ha mandado, para que tus días sean prolongados y te vaya bien en la tierra que el SEÑOR tu Dios te da." 
+                        Deuteronomio 5:16<br>
+
+                        Es por eso que con la bendición de Dios y de nuestros padres: <br><br>
+
+                        <strong style="font-size:1.2rem; font-family: Alice, serif;">Moisés Alejandro González <br>
+                        Gladys Jeannette Guzmán Miranda <br><br>
+
+                        Juan Francisco Esteban Martínez <br>
+                        Mónica Lohendy Tobar de la Rosa <br><br></strong>
+ 
+                        Cumpliremos el anhelo más grande de nuestros corazones y marcaremos un antes y un después en nuestras generaciones.
                         </div>
                     </div>
                 </div>
